@@ -3,334 +3,332 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LP Portfolio | Claude Codeで制作したランディングページ集</title>
+<title>LP Portfolio | AIで作る小さなお店のランディングページ</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 :root{
-  --bg:#0c0c0c;
-  --bg2:#141414;
-  --bg3:#1c1c1c;
-  --border:rgba(255,255,255,.08);
-  --text:#f0f0f0;
-  --muted:#888;
-  --accent:#6c63ff;
-  --accent2:#ff6b6b;
+  --bg:#0a0a0a;
+  --bg2:#111111;
+  --bg3:#1a1a1a;
+  --border:rgba(255,255,255,.07);
+  --text:#f5f5f5;
+  --muted:#777;
+  --green:#00d68f;
+  --green-dim:rgba(0,214,143,.12);
   --font-en:'Space Grotesk',sans-serif;
   --font-jp:'Noto Sans JP',sans-serif;
 }
 body{background:var(--bg);color:var(--text);font-family:var(--font-jp);line-height:1.6;min-height:100vh;}
+a{text-decoration:none;color:inherit;}
 
-/* Header */
-.header{padding:80px 24px 60px;text-align:center;position:relative;overflow:hidden;}
-.header::before{
-  content:'PORTFOLIO';
-  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
-  font-family:var(--font-en);font-size:clamp(80px,15vw,200px);font-weight:700;
-  color:rgba(255,255,255,.025);letter-spacing:-.02em;white-space:nowrap;pointer-events:none;
+/* ── Hero ── */
+.hero{
+  padding:80px 48px 72px;
+  max-width:1200px;margin:0 auto;
+  display:grid;grid-template-columns:1fr auto;align-items:center;gap:48px;
 }
-.header-label{
-  font-family:var(--font-en);font-size:11px;font-weight:700;letter-spacing:.25em;
-  color:var(--accent);text-transform:uppercase;margin-bottom:20px;display:block;
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--green-dim);border:1px solid rgba(0,214,143,.25);
+  color:var(--green);font-family:var(--font-en);font-size:11px;font-weight:700;
+  letter-spacing:.2em;text-transform:uppercase;
+  padding:6px 14px;border-radius:100px;margin-bottom:28px;
 }
-.header h1{
-  font-family:var(--font-en);font-size:clamp(36px,6vw,72px);font-weight:700;
-  letter-spacing:-.03em;line-height:1.1;margin-bottom:16px;
+.hero-badge::before{content:'';width:6px;height:6px;background:var(--green);border-radius:50%;}
+.hero h1{
+  font-size:clamp(36px,5vw,64px);font-weight:900;line-height:1.15;
+  letter-spacing:-.02em;margin-bottom:20px;
 }
-.header p{font-size:15px;color:var(--muted);max-width:480px;margin:0 auto;}
-
-/* Stats bar */
-.stats{
-  display:flex;justify-content:center;gap:48px;padding:32px 24px;
-  border-top:1px solid var(--border);border-bottom:1px solid var(--border);
-  margin-bottom:64px;
+.hero h1 em{color:var(--green);font-style:normal;}
+.hero-sub{font-size:15px;color:var(--muted);max-width:440px;line-height:1.8;margin-bottom:36px;}
+.hero-cta{
+  display:inline-flex;align-items:center;gap:10px;
+  background:var(--green);color:#000;
+  font-family:var(--font-en);font-size:14px;font-weight:700;
+  padding:14px 28px;border-radius:4px;
+  transition:opacity .2s;
 }
-.stat-item{text-align:center;}
-.stat-num{font-family:var(--font-en);font-size:32px;font-weight:700;color:var(--text);display:block;}
-.stat-label{font-size:12px;color:var(--muted);margin-top:4px;}
-
-/* Grid */
-.container{max-width:1200px;margin:0 auto;padding:0 24px 80px;}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
-
-/* Card */
-.card{
+.hero-cta:hover{opacity:.85;}
+.hero-cta svg{transition:transform .2s;}
+.hero-cta:hover svg{transform:translateX(3px);}
+.hero-stats{
+  display:flex;flex-direction:column;gap:20px;
   background:var(--bg2);border:1px solid var(--border);
-  display:flex;flex-direction:column;
-  transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease;
-  position:relative;overflow:hidden;
+  padding:32px 36px;border-radius:8px;min-width:200px;
 }
-.card::before{
-  content:'';position:absolute;top:0;left:0;right:0;height:2px;
-  background:linear-gradient(90deg,var(--accent),var(--accent2));
-  opacity:0;transition:opacity .2s ease;
+.hero-stat{}
+.hero-stat-num{
+  font-family:var(--font-en);font-size:36px;font-weight:700;
+  color:var(--text);line-height:1;
 }
-.card:hover{transform:translateY(-4px);border-color:rgba(108,99,255,.3);box-shadow:0 16px 48px rgba(0,0,0,.4);}
-.card:hover::before{opacity:1;}
+.hero-stat-num span{font-size:16px;color:var(--green);margin-left:4px;}
+.hero-stat-label{font-size:12px;color:var(--muted);margin-top:4px;}
+
+/* ── Section header ── */
+.section-header{
+  max-width:1200px;margin:0 auto 40px;padding:0 48px;
+  display:flex;align-items:baseline;gap:16px;
+  border-top:1px solid var(--border);padding-top:56px;
+}
+.section-title{font-family:var(--font-en);font-size:13px;font-weight:700;letter-spacing:.15em;color:var(--muted);text-transform:uppercase;}
+.section-count{font-family:var(--font-en);font-size:13px;color:rgba(255,255,255,.2);}
+
+/* ── Grid ── */
+.grid{
+  max-width:1200px;margin:0 auto;padding:0 48px 100px;
+  display:grid;grid-template-columns:repeat(3,1fr);gap:2px;
+  background:var(--border);
+}
+
+/* ── Card ── */
+.card{
+  background:var(--bg);display:flex;flex-direction:column;
+  transition:background .2s;
+  position:relative;
+}
+.card:hover{background:var(--bg2);}
 
 .card-thumb{
-  height:200px;background:var(--bg3);
-  display:flex;align-items:center;justify-content:center;
-  font-family:var(--font-en);font-size:13px;color:var(--muted);
-  position:relative;overflow:hidden;
+  width:100%;aspect-ratio:16/10;
+  background:var(--bg3);
+  overflow:hidden;position:relative;
 }
 .card-thumb iframe{
   width:200%;height:200%;
   transform:scale(.5);transform-origin:top left;
   pointer-events:none;border:none;
+  display:block;
 }
-.card-thumb-placeholder{
-  display:flex;flex-direction:column;align-items:center;gap:12px;
+.card-thumb-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to bottom, transparent 60%, rgba(10,10,10,.6) 100%);
+  pointer-events:none;
 }
-.card-thumb-icon{
-  width:48px;height:48px;opacity:.3;
-}
-.card-body{padding:24px;flex:1;display:flex;flex-direction:column;gap:12px;}
-.card-category{
-  font-family:var(--font-en);font-size:10px;font-weight:700;letter-spacing:.2em;
-  text-transform:uppercase;padding:4px 10px;border-radius:2px;
-  display:inline-block;width:fit-content;
-}
-.cat-clinic{background:rgba(34,197,94,.15);color:#22c55e;}
-.cat-beauty{background:rgba(244,114,182,.15);color:#f472b6;}
-.cat-legal{background:rgba(251,191,36,.15);color:#fbbf24;}
-.cat-relax{background:rgba(45,212,191,.15);color:#2dd4bf;}
-.cat-medical{background:rgba(96,165,250,.15);color:#60a5fa;}
-.cat-gym-m{background:rgba(230,48,0,.15);color:#e63000;}
-.cat-gym-f{background:rgba(196,132,106,.15);color:#c4846a;}
 
-.card-title{font-size:18px;font-weight:700;line-height:1.3;}
-.card-desc{font-size:13px;color:var(--muted);line-height:1.6;flex:1;}
+.card-body{padding:24px 28px 28px;}
+.card-category{
+  font-size:11px;font-weight:700;color:var(--green);
+  letter-spacing:.1em;margin-bottom:10px;display:block;
+}
+.card-name{font-size:17px;font-weight:700;line-height:1.35;margin-bottom:8px;}
+.card-desc{font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:20px;}
 .card-link{
   display:inline-flex;align-items:center;gap:8px;
-  font-family:var(--font-en);font-size:13px;font-weight:700;
-  color:var(--text);text-decoration:none;margin-top:8px;
-  padding:10px 0;border-top:1px solid var(--border);
-  transition:color .2s ease;
+  font-family:var(--font-en);font-size:12px;font-weight:700;letter-spacing:.05em;
+  color:var(--text);opacity:.6;
+  transition:opacity .2s,color .2s;
 }
-.card-link:hover{color:var(--accent);}
-.card-link svg{transition:transform .2s ease;}
-.card-link:hover svg{transform:translateX(4px);}
+.card:hover .card-link{opacity:1;color:var(--green);}
+.card-link svg{transition:transform .2s;}
+.card:hover .card-link svg{transform:translateX(4px);}
 
-/* Footer */
+/* ── Footer ── */
 footer{
-  text-align:center;padding:40px 24px;
   border-top:1px solid var(--border);
-  font-size:13px;color:var(--muted);
+  padding:32px 48px;
+  display:flex;justify-content:space-between;align-items:center;
+  max-width:1200px;margin:0 auto;
 }
-footer span{color:var(--accent);}
+.footer-logo{font-family:var(--font-en);font-size:13px;font-weight:700;color:var(--muted);}
+.footer-note{font-size:12px;color:rgba(255,255,255,.2);}
 
-/* Responsive */
-@media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr);}}
-@media(max-width:600px){
-  .grid{grid-template-columns:1fr;}
-  .stats{gap:24px;}
-  .stat-num{font-size:24px;}
-  .header{padding:60px 24px 40px;}
+/* ── Responsive ── */
+@media(max-width:900px){
+  .grid{grid-template-columns:repeat(2,1fr);}
+  .hero{grid-template-columns:1fr;gap:32px;}
+  .hero-stats{flex-direction:row;min-width:auto;}
+}
+@media(max-width:640px){
+  .hero{padding:48px 24px 40px;}
+  .section-header{padding:40px 24px 0;margin-bottom:24px;}
+  .grid{grid-template-columns:1fr;padding:0 24px 60px;}
+  footer{padding:24px;flex-direction:column;gap:8px;text-align:center;}
 }
 </style>
 </head>
 <body>
 
-<header class="header">
-  <span class="header-label">Claude Code × LP制作</span>
-  <h1>LP Portfolio</h1>
-  <p>AIとの対話だけで制作したランディングページ作品集</p>
-</header>
-
-<div class="stats">
-  <div class="stat-item">
-    <span class="stat-num">7</span>
-    <div class="stat-label">制作実績</div>
+<!-- Hero -->
+<div class="hero">
+  <div class="hero-left">
+    <div class="hero-badge">LP Portfolio</div>
+    <h1>小さなお店の集客を、<br><em>Webで変える。</em></h1>
+    <p class="hero-sub">Claude Codeとの対話だけで制作した、業種別ランディングページのサンプル集です。<br>実際に動くページをご覧ください。</p>
+    <a class="hero-cta" href="https://claude.ai/code" target="_blank" rel="noopener">
+      LP・HP制作について相談する
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
   </div>
-  <div class="stat-item">
-    <span class="stat-num">7</span>
-    <div class="stat-label">業種カバー</div>
-  </div>
-  <div class="stat-item">
-    <span class="stat-num">PC / SP</span>
-    <div class="stat-label">レスポンシブ対応</div>
-  </div>
-</div>
-
-<div class="container">
-  <div class="grid">
-
-    <!-- やすらぎ整骨院 -->
-    <div class="card">
-      <div class="card-thumb">
-        <div class="card-thumb-placeholder">
-          <svg class="card-thumb-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect width="48" height="48" rx="4" fill="white" fill-opacity=".1"/>
-            <path d="M24 10C24 10 14 16 14 26C14 31.5228 18.4772 36 24 36C29.5228 36 34 31.5228 34 26C34 16 24 10Z" stroke="white" stroke-width="2" fill="none"/>
-            <line x1="24" y1="19" x2="24" y2="33" stroke="white" stroke-width="2"/>
-            <line x1="17" y1="26" x2="31" y2="26" stroke="white" stroke-width="2"/>
-          </svg>
-          <span>やすらぎ整骨院</span>
-        </div>
-      </div>
-      <div class="card-body">
-        <span class="card-category cat-clinic">整骨院</span>
-        <div class="card-title">やすらぎ整骨院</div>
-        <div class="card-desc">月額定額で通い放題・腰痛専門の整骨院LP。実績数字と比較表で信頼感を訴求。</div>
-        <a class="card-link" href="https://kuruminokodomo0426-a11y.github.io/lp-yasuragi/" target="_blank" rel="noopener">
-          LPを見る
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
-      </div>
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <div class="hero-stat-num">8<span>件</span></div>
+      <div class="hero-stat-label">制作サンプル</div>
     </div>
-
-    <!-- Salon FOLIA -->
-    <div class="card">
-      <div class="card-thumb">
-        <div class="card-thumb-placeholder">
-          <svg class="card-thumb-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect width="48" height="48" rx="4" fill="white" fill-opacity=".1"/>
-            <circle cx="24" cy="18" r="8" stroke="white" stroke-width="2" fill="none"/>
-            <path d="M12 38c0-6.627 5.373-12 12-12s12 5.373 12 12" stroke="white" stroke-width="2" stroke-linecap="round" fill="none"/>
-          </svg>
-          <span>Salon FOLIA</span>
-        </div>
-      </div>
-      <div class="card-body">
-        <span class="card-category cat-beauty">ヘアサロン</span>
-        <div class="card-title">Salon FOLIA</div>
-        <div class="card-desc">恵比寿のプライベートヘアサロン。上質な世界観を伝えるデザインで予約を促進。</div>
-        <a class="card-link" href="https://kuruminokodomo0426-a11y.github.io/lp-beauty/#" target="_blank" rel="noopener">
-          LPを見る
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
-      </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">8<span>業種</span></div>
+      <div class="hero-stat-label">業界カバー</div>
     </div>
-
-    <!-- 行政書士 -->
-    <div class="card">
-      <div class="card-thumb">
-        <div class="card-thumb-placeholder">
-          <svg class="card-thumb-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect width="48" height="48" rx="4" fill="white" fill-opacity=".1"/>
-            <rect x="12" y="10" width="24" height="30" rx="2" stroke="white" stroke-width="2" fill="none"/>
-            <line x1="17" y1="18" x2="31" y2="18" stroke="white" stroke-width="2"/>
-            <line x1="17" y1="24" x2="31" y2="24" stroke="white" stroke-width="2"/>
-            <line x1="17" y1="30" x2="24" y2="30" stroke="white" stroke-width="2"/>
-          </svg>
-          <span>行政書士LP</span>
-        </div>
-      </div>
-      <div class="card-body">
-        <span class="card-category cat-legal">士業</span>
-        <div class="card-title">行政書士事務所</div>
-        <div class="card-desc">士業向けランディングページ。信頼性と専門性を前面に出したコーポレートデザイン。</div>
-        <a class="card-link" href="https://kuruminokodomo0426-a11y.github.io/gyoseishoshi-lp-portfolio/#" target="_blank" rel="noopener">
-          LPを見る
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
-      </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">PC<span>/SP</span></div>
+      <div class="hero-stat-label">全件レスポンシブ</div>
     </div>
-
-    <!-- Sabai Thai -->
-    <div class="card">
-      <div class="card-thumb">
-        <div class="card-thumb-placeholder">
-          <svg class="card-thumb-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect width="48" height="48" rx="4" fill="white" fill-opacity=".1"/>
-            <path d="M24 12C24 12 18 16 16 22C14 28 16 34 24 36C32 34 34 28 32 22C30 16 24 12 24 12Z" stroke="white" stroke-width="2" fill="none"/>
-            <path d="M20 24C20 24 22 26 24 26C26 26 28 24 28 24" stroke="white" stroke-width="2" stroke-linecap="round"/>
-          </svg>
-          <span>Sabai Thai</span>
-        </div>
-      </div>
-      <div class="card-body">
-        <span class="card-category cat-relax">マッサージ</span>
-        <div class="card-title">Sabai Thai</div>
-        <div class="card-desc">本格タイ古式マッサージ・恵比寿。異国情緒あふれるビジュアルでリラクゼーション体験を訴求。</div>
-        <a class="card-link" href="https://kuruminokodomo0426-a11y.github.io/lp-thai/" target="_blank" rel="noopener">
-          LPを見る
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
-      </div>
-    </div>
-
-    <!-- 訪問看護 -->
-    <div class="card">
-      <div class="card-thumb">
-        <div class="card-thumb-placeholder">
-          <svg class="card-thumb-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect width="48" height="48" rx="4" fill="white" fill-opacity=".1"/>
-            <path d="M24 10L38 18V30C38 35.5228 31.732 40.0819 24 42C16.268 40.0819 10 35.5228 10 30V18L24 10Z" stroke="white" stroke-width="2" fill="none"/>
-            <line x1="24" y1="21" x2="24" y2="31" stroke="white" stroke-width="2"/>
-            <line x1="19" y1="26" x2="29" y2="26" stroke="white" stroke-width="2"/>
-          </svg>
-          <span>訪問看護ステーション みどり</span>
-        </div>
-      </div>
-      <div class="card-body">
-        <span class="card-category cat-medical">医療・介護</span>
-        <div class="card-title">訪問看護ステーション みどり</div>
-        <div class="card-desc">住み慣れた場所で最後まで過ごせるよう支援する訪問看護。温かみと安心感を重視したデザイン。</div>
-        <a class="card-link" href="https://kuruminokodomo0426-a11y.github.io/lp-houkan/" target="_blank" rel="noopener">
-          LPを見る
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
-      </div>
-    </div>
-
-    <!-- IRON FORGE -->
-    <div class="card">
-      <div class="card-thumb">
-        <div class="card-thumb-placeholder">
-          <svg class="card-thumb-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect width="48" height="48" rx="4" fill="white" fill-opacity=".1"/>
-            <rect x="6" y="21" width="8" height="6" rx="1" stroke="white" stroke-width="2" fill="none"/>
-            <rect x="34" y="21" width="8" height="6" rx="1" stroke="white" stroke-width="2" fill="none"/>
-            <line x1="14" y1="24" x2="34" y2="24" stroke="white" stroke-width="2"/>
-            <rect x="20" y="19" width="8" height="10" rx="1" stroke="white" stroke-width="2" fill="none"/>
-          </svg>
-          <span>IRON FORGE</span>
-        </div>
-      </div>
-      <div class="card-body">
-        <span class="card-category cat-gym-m">パーソナルジム（男性）</span>
-        <div class="card-title">IRON FORGE</div>
-        <div class="card-desc">筋肥大・高単価男性向けパーソナルジム。暗黒×レッドで力強さと高級感を表現。</div>
-        <a class="card-link" href="https://kuruminokodomo0426-a11y.github.io/iron-forge/" target="_blank" rel="noopener">
-          LPを見る
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
-      </div>
-    </div>
-
-    <!-- STUDIO BLOOM -->
-    <div class="card">
-      <div class="card-thumb">
-        <div class="card-thumb-placeholder">
-          <svg class="card-thumb-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect width="48" height="48" rx="4" fill="white" fill-opacity=".1"/>
-            <circle cx="24" cy="20" r="6" stroke="white" stroke-width="2" fill="none"/>
-            <path d="M18 20C18 20 16 14 24 12C32 14 30 20 30 20" stroke="white" stroke-width="2" fill="none"/>
-            <path d="M14 36C14 30.4772 18.4772 26 24 26C29.5228 26 34 30.4772 34 36" stroke="white" stroke-width="2" stroke-linecap="round" fill="none"/>
-          </svg>
-          <span>STUDIO BLOOM</span>
-        </div>
-      </div>
-      <div class="card-body">
-        <span class="card-category cat-gym-f">パーソナルジム（女性）</span>
-        <div class="card-title">STUDIO BLOOM</div>
-        <div class="card-desc">女性向けダイエット専門パーソナルジム。テラコッタ×クリームで温かみある高品質感を表現。</div>
-        <a class="card-link" href="https://kuruminokodomo0426-a11y.github.io/studio-bloom/" target="_blank" rel="noopener">
-          LPを見る
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
-      </div>
-    </div>
-
   </div>
 </div>
 
-<footer>
-  <p>制作: <span>Claude Code</span> × AI対話だけで作るLPポートフォリオ</p>
-</footer>
+<!-- Section -->
+<div class="section-header">
+  <div class="section-title">制作サンプル一覧</div>
+  <div class="section-count">08 works</div>
+</div>
+
+<div class="grid">
+
+  <!-- 整骨院 -->
+  <div class="card">
+    <div class="card-thumb">
+      <iframe src="https://kuruminokodomo0426-a11y.github.io/lp-yasuragi/" loading="lazy" title="やすらぎ整骨院"></iframe>
+      <div class="card-thumb-overlay"></div>
+    </div>
+    <div class="card-body">
+      <span class="card-category">整骨院</span>
+      <div class="card-name">やすらぎ整骨院</div>
+      <div class="card-desc">月額定額で通い放題・腰痛専門の整骨院LP。実績数字と比較表で信頼感を訴求。</div>
+      <a class="card-link" href="https://kuruminokodomo0426-a11y.github.io/lp-yasuragi/" target="_blank" rel="noopener">
+        サンプルを見る
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- 鍼灸院 -->
+  <div class="card">
+    <div class="card-thumb">
+      <iframe src="https://kuruminokodomo0426-a11y.github.io/lp-befine/" loading="lazy" title="ビファイン鍼灸治療院"></iframe>
+      <div class="card-thumb-overlay"></div>
+    </div>
+    <div class="card-body">
+      <span class="card-category">鍼灸院</span>
+      <div class="card-name">ビファイン鍼灸治療院</div>
+      <div class="card-desc">はり・お灸・マッサージを提供する新宿の鍼灸院LP。伝統と安心感を伝えるデザイン。</div>
+      <a class="card-link" href="https://kuruminokodomo0426-a11y.github.io/lp-befine/" target="_blank" rel="noopener">
+        サンプルを見る
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- 美容室 -->
+  <div class="card">
+    <div class="card-thumb">
+      <iframe src="https://kuruminokodomo0426-a11y.github.io/lp-beauty/" loading="lazy" title="Salon FOLIA"></iframe>
+      <div class="card-thumb-overlay"></div>
+    </div>
+    <div class="card-body">
+      <span class="card-category">ヘアサロン</span>
+      <div class="card-name">Salon FOLIA</div>
+      <div class="card-desc">恵比寿のプライベートヘアサロン。上質な世界観と予約導線を両立したデザイン。</div>
+      <a class="card-link" href="https://kuruminokodomo0426-a11y.github.io/lp-beauty/" target="_blank" rel="noopener">
+        サンプルを見る
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- 士業 -->
+  <div class="card">
+    <div class="card-thumb">
+      <iframe src="https://kuruminokodomo0426-a11y.github.io/gyoseishoshi-lp-portfolio/" loading="lazy" title="行政書士LP"></iframe>
+      <div class="card-thumb-overlay"></div>
+    </div>
+    <div class="card-body">
+      <span class="card-category">士業</span>
+      <div class="card-name">行政書士事務所</div>
+      <div class="card-desc">士業向けランディングページ。信頼性・専門性を前面に出したコーポレートデザイン。</div>
+      <a class="card-link" href="https://kuruminokodomo0426-a11y.github.io/gyoseishoshi-lp-portfolio/" target="_blank" rel="noopener">
+        サンプルを見る
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- タイ古式 -->
+  <div class="card">
+    <div class="card-thumb">
+      <iframe src="https://kuruminokodomo0426-a11y.github.io/lp-thai/" loading="lazy" title="Sabai Thai"></iframe>
+      <div class="card-thumb-overlay"></div>
+    </div>
+    <div class="card-body">
+      <span class="card-category">マッサージ</span>
+      <div class="card-name">Sabai Thai</div>
+      <div class="card-desc">本格タイ古式マッサージ・恵比寿。異国情緒あふれるビジュアルでリラクゼーション体験を訴求。</div>
+      <a class="card-link" href="https://kuruminokodomo0426-a11y.github.io/lp-thai/" target="_blank" rel="noopener">
+        サンプルを見る
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- 訪問看護 -->
+  <div class="card">
+    <div class="card-thumb">
+      <iframe src="https://kuruminokodomo0426-a11y.github.io/lp-houkan/" loading="lazy" title="訪問看護ステーション みどり"></iframe>
+      <div class="card-thumb-overlay"></div>
+    </div>
+    <div class="card-body">
+      <span class="card-category">医療・介護</span>
+      <div class="card-name">訪問看護ステーション みどり</div>
+      <div class="card-desc">住み慣れた場所で最後まで過ごせるよう支援する訪問看護LP。温かみと安心感を重視したデザイン。</div>
+      <a class="card-link" href="https://kuruminokodomo0426-a11y.github.io/lp-houkan/" target="_blank" rel="noopener">
+        サンプルを見る
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- IRON FORGE -->
+  <div class="card">
+    <div class="card-thumb">
+      <iframe src="https://kuruminokodomo0426-a11y.github.io/iron-forge/" loading="lazy" title="IRON FORGE"></iframe>
+      <div class="card-thumb-overlay"></div>
+    </div>
+    <div class="card-body">
+      <span class="card-category">パーソナルジム（男性）</span>
+      <div class="card-name">IRON FORGE</div>
+      <div class="card-desc">筋肥大・高単価男性向けパーソナルジム。暗黒×レッドで力強さと高級感を表現。</div>
+      <a class="card-link" href="https://kuruminokodomo0426-a11y.github.io/iron-forge/" target="_blank" rel="noopener">
+        サンプルを見る
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- STUDIO BLOOM -->
+  <div class="card">
+    <div class="card-thumb">
+      <iframe src="https://kuruminokodomo0426-a11y.github.io/studio-bloom/" loading="lazy" title="STUDIO BLOOM"></iframe>
+      <div class="card-thumb-overlay"></div>
+    </div>
+    <div class="card-body">
+      <span class="card-category">パーソナルジム（女性）</span>
+      <div class="card-name">STUDIO BLOOM</div>
+      <div class="card-desc">女性向けダイエット専門パーソナルジム。テラコッタ×クリームで温かみある高品質感を表現。</div>
+      <a class="card-link" href="https://kuruminokodomo0426-a11y.github.io/studio-bloom/" target="_blank" rel="noopener">
+        サンプルを見る
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
+
+</div>
+
+<div style="max-width:1200px;margin:0 auto;border-top:1px solid var(--border);">
+  <footer>
+    <div class="footer-logo">LP PORTFOLIO</div>
+    <div class="footer-note">Made with Claude Code</div>
+  </footer>
+</div>
 
 </body>
 </html>
